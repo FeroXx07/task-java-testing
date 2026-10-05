@@ -1,7 +1,6 @@
 package level_1.exercise_1_unit_test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Library {
@@ -10,6 +9,8 @@ public class Library {
     public Library(){
         books = new ArrayList<>();
     }
+
+    public List<Book> getCollection(){ return books; }
 
     public void addBook(String title) throws TitleAlreadyTaken {
         if (books.stream().anyMatch(b -> b.getTitle().equals(title))){
