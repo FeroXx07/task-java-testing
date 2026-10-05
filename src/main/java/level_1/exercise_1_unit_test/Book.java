@@ -13,11 +13,8 @@ public class Book implements Comparable<Book> {
     public String getTitle() { return title; }
 
     private void validateTitle(String title){
-        if(title == null){
-            throw new IllegalArgumentException("Title cannot be null!");
-        }
-        if (title.isBlank()) {
-            throw new IllegalArgumentException("Title cannot be blank or empty!");
+        if(title == null || title.isBlank()){
+            throw new TitleEmptyOrNull("Title cannot be null or blank!");
         }
     }
 

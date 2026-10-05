@@ -11,17 +11,23 @@ public class Library {
         books = new ArrayList<>();
     }
 
-    public void addBook(String title){
+    public void addBook(String title) throws TitleAlreadyTaken {
+        if (books.stream().anyMatch(b -> b.getTitle().equals(title))){
+            throw new TitleAlreadyTaken("Title already exists");
+        }
         books.add(new Book(title));
     }
 
-    public void addBookAt(int index, String title){
+    public void addBookAt(int index, String title) throws TitleAlreadyTaken{
+        if (books.stream().anyMatch(b -> b.getTitle().equals(title))){
+            throw new TitleAlreadyTaken("Title already exists");
+        }
         books.add(index, new Book(title));
     }
 
     public void removeBook(String title){
         if (title == null || title.isBlank()){
-            throw new IllegalArgumentException("Title cannot be null or blank!");
+            throw new TitleEmptyOrNull("Title cannot be null or blank!");
         }
         books.removeIf(book -> book.getTitle().equals(title));
     }
