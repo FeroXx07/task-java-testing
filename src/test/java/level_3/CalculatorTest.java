@@ -14,5 +14,57 @@ class CalculatorTest {
         assertThat(calculator.getTotal()).isEqualTo(0);
     }
 
-    
+    @Test
+    void calculatorAddition() {
+        Calculator calculator = new Calculator();
+        calculator.add(5);
+        assertThat(calculator.getTotal()).isEqualTo(5);
+        calculator.add(5);
+        assertThat(calculator.getTotal()).isEqualTo(10);
+    }
+
+    @Test
+    void calculatorSubtraction() {
+        Calculator calculator = new Calculator();
+        calculator.subtract(5);
+        assertThat(calculator.getTotal()).isEqualTo(-5);
+        calculator.subtract(5);
+        assertThat(calculator.getTotal()).isEqualTo(-10);
+    }
+
+    @Test
+    void calculatorMultiplication() {
+        Calculator calculator = new Calculator();
+        calculator.multiply(5);
+        assertThat(calculator.getTotal()).isEqualTo(0);
+        calculator.add(10);
+        calculator.multiply(5);
+        assertThat(calculator.getTotal()).isEqualTo(50);
+    }
+
+    @Test
+    void calculatorDivision() {
+        Calculator calculator = new Calculator();
+        calculator.add(10);
+        calculator.divide(2);
+        assertThat(calculator.getTotal()).isEqualTo(2);
+    }
+
+    @Test
+    void calculatorDivisionByZero() {
+        Calculator calculator = new Calculator();
+        calculator.add(10);
+        calculator.divide(0);
+    }
+
+    @Test
+    void calculatorReset() {
+        Calculator calculator = new Calculator();
+        calculator.add(10);
+        calculator.multiply(5);
+        calculator.divide(2);
+        calculator.reset();
+        assertThat(calculator.getTotal()).isEqualTo(0);
+    }
+
 }
