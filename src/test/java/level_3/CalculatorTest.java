@@ -1,11 +1,9 @@
 package level_3;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CalculatorTest {
     @Test
@@ -47,14 +45,14 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         calculator.add(10);
         calculator.divide(2);
-        assertThat(calculator.getTotal()).isEqualTo(2);
+        assertThat(calculator.getTotal()).isEqualTo(5);
     }
 
     @Test
     void calculatorDivisionByZero() {
         Calculator calculator = new Calculator();
         calculator.add(10);
-        calculator.divide(0);
+        assertThrows(ArithmeticException.class, () -> calculator.divide(0));
     }
 
     @Test

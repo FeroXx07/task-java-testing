@@ -1,11 +1,32 @@
 package level_3;
 
 public class Calculator {
-    private int total;
+    private double total;
 
     public Calculator(){
         total = 0;
     }
 
-    public int getTotal() { return total; }
+    public double getTotal() { return total; }
+
+    public void add(double number){
+        total += number;
+    }
+
+    public void subtract(double number){
+        total -= number;
+    }
+    public void multiply(double number){
+        total *= number;
+    }
+    public void divide(double number){
+        if (number == 0){
+            throw new ArithmeticException("Divisor can't be");
+        }
+        total /= number;
+    }
+
+    public void reset(){
+        total = 0;
+    }
 }
