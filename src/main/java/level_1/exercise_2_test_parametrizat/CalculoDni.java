@@ -1,7 +1,9 @@
 package level_1.exercise_2_test_parametrizat;
 
 public class CalculoDni {
-    public static char calcLetter(String dniLetterless){
+    private final static String LETTERS = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+    public static char calculateLetter(String dniLetterless){
         if (dniLetterless == null || dniLetterless.isBlank()) {
             throw new IllegalArgumentException("Dni is null or blank!");
         }
@@ -10,10 +12,8 @@ public class CalculoDni {
             throw new IllegalArgumentException("Dni is not valid!");
         }
 
-        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
-        int number = Integer.parseInt(dniLetterless.substring(0, 8));
-
-        return letters.charAt(number % 23);
+        int number = Integer.parseInt(dniLetterless);
+        return LETTERS.charAt(number % 23);
     }
 
     // regex: \\d (digits only) , {n} n times, [A-Z] (one time)

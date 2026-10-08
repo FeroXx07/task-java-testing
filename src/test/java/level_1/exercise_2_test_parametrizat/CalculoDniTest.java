@@ -22,7 +22,7 @@ class CalculoDniTest {
             "00000009, D"
     })
     void calcLetter_validDni_returnsCorrectLetter(String dni, char expected) {
-        assertEquals(expected, CalculoDni.calcLetter(dni));
+        assertEquals(expected, CalculoDni.calculateLetter(dni));
     }
 
     @ParameterizedTest
@@ -39,7 +39,7 @@ class CalculoDniTest {
     void calcLetter_invalidDni_throwsException(String dni) {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> CalculoDni.calcLetter(dni)
+                () -> CalculoDni.calculateLetter(dni)
         );
     }
 }

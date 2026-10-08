@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayAccesser {
-    private final int size = 3;
-    private final int[] array = new int[size];
+    private final int num = 3;
+    private final int[] numbers = new int[num];
     public void accessOutOfBonds(){
-        int invalid = array[array.length];
+        int invalid = numbers[numbers.length];
     }
 }

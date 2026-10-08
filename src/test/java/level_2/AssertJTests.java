@@ -32,16 +32,14 @@ public class AssertJTests {
 
     @ParameterizedTest
     @CsvSource({
-            "Toyota, Red, 4, 150, Toyota, Red, 4, 150, BMW, Black, 4, 200",
+            "Toyota, Red, 4, 150"
     })
     void twoObjects_haveSame_reference(
-            String model1, String color1, int tyres1, int hp1,
-            String model2, String color2, int tyres2, int hp2,
-            String model3, String color3, int tyres3, int hp3) {
+            String model1, String color1, int tyres1, int hp1) {
 
         Vehicle vehicle1 = new Vehicle(model1, color1, tyres1, hp1);
         Vehicle vehicle2 = vehicle1;
-        Vehicle vehicle3 = new Vehicle(model2, color2, tyres2, hp2);
+        Vehicle vehicle3 = new Vehicle(model1, color1, tyres1, hp1);
 
         assertThat(vehicle1).isSameAs(vehicle2);
         assertThat(vehicle1).isNotSameAs(vehicle3);
@@ -51,8 +49,10 @@ public class AssertJTests {
     void twoArrays_areIdentical() {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] array2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] array3 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 11};
 
         assertThat(array).isEqualTo(array2);
+        assertThat(array).isNotEqualTo(array3);
     }
 
     @ParameterizedTest

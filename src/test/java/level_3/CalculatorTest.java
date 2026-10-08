@@ -28,6 +28,9 @@ class CalculatorTest {
         assertThat(calculator.getTotal()).isEqualTo(-5);
         calculator.subtract(5);
         assertThat(calculator.getTotal()).isEqualTo(-10);
+        // TODO: handle negative args cases in all
+//        calculator.subtract(-5);
+//        assertThat(calculator.getTotal()).isEqualTo(-15);
     }
 
     @Test

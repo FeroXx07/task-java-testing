@@ -71,13 +71,14 @@ class LibraryTest {
             throw new RuntimeException(e);
         }
 
-        String book2 = library.getBookTitleAt(1);
+        // Avoid using two public methods in the same test. Try to be as minim unit possible.
+        String book2 = library.getCollection().get(1).getTitle();
         assertEquals("Book_2", book2);
 
-        String book3 = library.getBookTitleAt(3);
+        String book3 = library.getCollection().get(3).getTitle();
         assertEquals("Book_3", book3);
 
-        String actualTitle = library.getBookTitleAt(expectedIndex);
+        String actualTitle = library.getCollection().get(expectedIndex).getTitle();
         assertEquals(expectedTitle, actualTitle);
     }
 
